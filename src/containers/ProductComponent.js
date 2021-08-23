@@ -21,7 +21,10 @@ const ProductComponent = () => {
                   alt="..."
                 />
                 <div className="w-full bg-gray-100 p-4">
-                  <h5 className="card-title">{value.price}</h5>
+                  <h5 className="card-title text-lg font-bold">
+                    {Math.round(value.price) - 0.01}
+                    <sup>$</sup>
+                  </h5>
                   <p className="card-text truncate">{value.title}</p>
                 </div>
               </div>
