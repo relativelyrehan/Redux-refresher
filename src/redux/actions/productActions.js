@@ -20,9 +20,9 @@ export const removeSelectedProduct = () => {
   };
 };
 
-export const productAddToCart = (product) => {
+export const productAddToCart = (id) => {
   return {
     type: ActionTypes.ADD_TO_CART,
-    payload: product,
+    payload: id,
   };
 };

@@ -4,11 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { loginUser, logoutUser } from "../redux/actions/userActions";
 
 function Header() {
-  const cartItems = window.localStorage.getItem("cartItems");
   const dispatch = useDispatch();
   const loginState = useSelector((state) => state.loginState);
-
-  console.log("I am cart", cartItems);
+  const cart = useSelector((state) => state.cart);
   return (
     <nav class="bg-blue-400 p-6 mb-6 text-gray-50 font-semibold">
       <div class="container text-lg">
@@ -16,6 +14,7 @@ function Header() {
           <a class="navbar-brand" href="/">
             Redux Store
           </a>
+          <div>cart: {cart.length}</div>
           <div className="flex gap-x-4">
             <button
               className="hover:bg-purple-400"

@@ -24,12 +24,17 @@ export const selectedProductReducer = (state = {}, action) => {
   }
 };
 
-export const addToCart = (state = [], action) => {
+const cart = window.localStorage.getItem("cartItems").split(",");
+
+export const addToCartReducer = (state = cart, action) => {
   switch (action.type) {
     case ActionTypes.ADD_TO_CART:
-      state.push(action.payload);
-      window.localStorage.setItem("cartItems", JSON.stringify(state));
-      return state;
+      if (state.indexOf(action.payload === -1)) {
+        window.localStorage.setItem("cartItems", [...state, action.payload]);
+        return [...state, action.payload];
+      } else {
+        return state;
+      }
 
     default:
       return state;

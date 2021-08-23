@@ -2,15 +2,15 @@ import { combineReducers } from "redux";
 import {
   productReducer,
   selectedProductReducer,
-  addToCart,
+  addToCartReducer,
 } from "./productReducer";
 import { loginReducer } from "./userReducer";
 
 const reducers = combineReducers({
   allProducts: productReducer,
   selectedProduct: selectedProductReducer,
-  cart: addToCart,
   loginState: loginReducer,
+  cart: addToCartReducer,
 });
 
 export default reducers;
